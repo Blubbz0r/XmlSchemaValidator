@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file alias="mainwindow">mainwindow.qml</file>
+    </qresource>
+</RCC>

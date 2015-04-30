@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/Files">
+        <file alias="InvalidXml">resources/Invalid.xml</file>
+        <file alias="SchemaXsd">resources/Schema.xsd</file>
+        <file alias="ValidXml">resources/Valid.xml</file>
+    </qresource>
+</RCC>
