@@ -33,22 +33,22 @@ void MessageHandler::handleMessage(QtMsgType type, const QString& description,
                         QString::number(sourceLocation.column()), plainDescription);
         break;
     case QtFatalMsg:
-    {
-        const auto errorCode(identifier.fragment());
-        QUrl uri(identifier);
-        uri.setFragment(QString());
+        {
+            const auto errorCode(identifier.fragment());
+            QUrl uri(identifier);
+            uri.setFragment(QString());
 
-        auto location = sourceLocation.isNull() ? "Unknown location"
-                                                : sourceLocation.uri().toString();
-        auto errorId = (uri.toString() == QLatin1String("http://www.w3.org/2005/xqt-errors"))
-                           ? errorCode
-                           : identifier.toString();
+            auto location = sourceLocation.isNull() ? "Unknown location"
+                                                    : sourceLocation.uri().toString();
+            auto errorId = (uri.toString() == QLatin1String("http://www.w3.org/2005/xqt-errors"))
+                               ? errorCode
+                               : identifier.toString();
 
-        out << QStringLiteral("Error %1 in %2, at line %3, column %4: %5")
-                   .arg(errorId, location, QString::number(sourceLocation.line()),
-                        QString::number(sourceLocation.column()), plainDescription);
-        break;
-    }
+            out << QStringLiteral("Error %1 in %2, at line %3, column %4: %5")
+                       .arg(errorId, location, QString::number(sourceLocation.line()),
+                            QString::number(sourceLocation.column()), plainDescription);
+            break;
+        }
     }
 
     emit msg(type, plainDescription);
@@ -68,8 +68,6 @@ QString MessageHandler::plainDescription(const QString& description) const
         {
         case QXmlStreamReader::Characters:
             result.append(reader.text().toString());
-            break;
-        default:
             break;
         }
     }

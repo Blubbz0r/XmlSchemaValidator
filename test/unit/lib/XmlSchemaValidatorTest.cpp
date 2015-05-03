@@ -2,8 +2,6 @@
 
 #include "XmlSchemaValidator.h"
 
-#include <QFile>
-
 using namespace testing;
 using namespace XSV;
 
